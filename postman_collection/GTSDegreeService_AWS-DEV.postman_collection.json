@@ -1,0 +1,730 @@
+{
+	"info": {
+		"_postman_id": "b4118f28-292f-4a39-a825-75aad7c52dbe",
+		"name": "GTSDegreeService_AWS_DEV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PostRequest",
+			"item": [
+				{
+					"name": "CreateDegrees",
+					"request": {
+						"method": "POST",
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"gts_degree_name\": \"Degree1\",\r\n        \"gts_degree_description\": \"Batchlor of Computer Application\"\r\n    },\r\n    {\r\n        \"gts_degree_name\": \"Degree2\",\r\n        \"gts_degree_description\": \"Master of Computer Application\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeNameExistAlready",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"gts_degree_name\": \"BCA\",\r\n        \"gts_degree_description\": \"Batchlor of Computer Application\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeNameEmpty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"gts_degree_name\": \"\",\r\n        \"gts_degree_description\": \"Batchlor of Computer Application\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetRequest",
+			"item": [
+				{
+					"name": "GetAllDegrees",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetActiveDegrees",
+					"request": {
+						"method": "GET",
+												"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/active",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetInactiveDegrees",
+					"request": {
+						"method": "GET",						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/inactive",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"inactive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDegreeById",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_id/1",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIdNotFound",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_id/111111",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_id",
+								"111111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIdInvalid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_id/-1",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_id",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDegreeByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_name/ca",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_name",
+								"ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeNameNotFound",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_name/bcaa",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_name",
+								"bcaa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SearchBySpace",
+					"request": {
+						"method": "GET",
+												"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_name/ ",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_name",
+								" "
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UpdateRequest",
+			"item": [
+				{
+					"name": "DegreeUpdate",
+					"request": {
+						"method": "PUT",
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 1,\r\n    \"gts_degree_name\": \"LLB\",\r\n    \"gts_degree_description\": \"Bachelor of Legislative Law\",\r\n    \"gts_degree_status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeNameExistAlready",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 2,\r\n    \"gts_degree_name\": \"LLB\",\r\n    \"gts_degree_description\": \"Bachelor of Legislative Law\",\r\n    \"gts_degree_status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIDIsInvalid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": -1,\r\n    \"gts_degree_name\": \"LLB\",\r\n    \"gts_degree_description\": \"Bachelor of Legislative Law\",\r\n    \"gts_degree_status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIDIsNotFound",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 11111111,\r\n    \"gts_degree_name\": \"LLB\",\r\n    \"gts_degree_description\": \"Bachelor of Legislative Law\",\r\n    \"gts_degree_status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeNameEmpty",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 1,\r\n    \"gts_degree_name\": \"\",\r\n    \"gts_degree_description\": \"Bachelor of Legislative Law\",\r\n    \"gts_degree_status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InvalidIDValue",
+					"request": {
+						"method": "PUT",
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": \"abc\",\r\n    \"gts_degree_name\": \"LLB\",\r\n    \"gts_degree_description\": \"Bachelor of Legislative Law\",\r\n    \"gts_degree_status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeActivated",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/activate",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIdInvalid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": -1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/activate",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIdNotFound",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 11111111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/activate",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeInactivated",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/inactivate",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"inactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIDInvalid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": -1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/inactivate",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"inactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DegreeIDNotFound",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gts_degree_id\": 11111111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/inactivate",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"inactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DeleteRequest",
+			"item": [
+				{
+					"name": "DeleteRoleById",
+					"request": {
+						"method": "DELETE",
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_id/5",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+							
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_id",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RoleIdInvalid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_id/-1",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_id",
+								"-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RoleIdNotFound",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{AWS_DEV_URL}}/api/v1/degree/degree_id/111111",
+							"host": [
+								"{{AWS_DEV_URL}}"
+							],
+						
+							"path": [
+								"api",
+								"v1",
+								"degree",
+								"degree_id",
+								"111111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+"variable": [
+		{
+			"key": "AWS_DEV_URL",
+		      "value": "https://6kmxdtde21.execute-api.ap-south-1.amazonaws.com/dev"
+		}
+	]
+}
